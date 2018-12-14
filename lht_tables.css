@@ -29,10 +29,7 @@
         display: block;
     }
 
-    thead th {
-        display: none;
-    }
-
+    thead th,
     tbody h1 {
         display: none;
     }
@@ -55,6 +52,9 @@
         min-height: 40px;
     }
 
+    /* 
+This affects every other row in the mobiles table.
+*/
     tr:nth-of-type(odd) {
         background-color: rgb(255, 235, 178);
         border: 2px solid gray;
@@ -76,11 +76,57 @@
    Tablet and Desktop Styles: greater than 640px
    =============================================
 */
+/* 
+This gives us out picture as the background with out any repeating of tiling. It also centers the table and sets it to 85%.
+*/
 @media only screen and (min-width:641px) {
     table {
         background: url(lht_photo1.png);
         background-repeat: no-repeat;
-        background-position: bottom, right;
-        width: 40%
+        background-position: 100% 100%;
+        background-size: 40%;
+        border: 6px double rgb(154, 64, 3);
+        border-collapse: collapse;
+        margin: 20px auto;
+        width: 85%;
+    }
+
+    th,
+    td {
+        border: 1px solid grey;
+        font-size: 0.85em;
+        font-weight: normal;
+        vertical-align: top;
+        width: 14.28%;
+        word-wrap: break-word;
+    }
+
+    td {
+        background-color: rgba(171, 171, 171, 0.6);
+        color: rgb(11, 12, 145);
+    }
+
+    /* 
+    This affects every data cell with the data-date including the word Feb.
+    */
+    td[data-date*="Feb"] {
+        background-color: rgba(232, 214, 148, 0.6);
+        box-shadow: gray inset 0 0 20px;
+    }
+
+    caption {
+        caption-side: top;
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 1.2em;
+        kerning: 3px;
+    }
+
+    /* 
+    This only affects the absolute first row of the table; the days of the week.
+    */
+    thead th {
+        background-color: rgb(154, 64, 3);
+        color: white;
     }
 }
